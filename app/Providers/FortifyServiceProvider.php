@@ -52,7 +52,7 @@ class FortifyServiceProvider extends ServiceProvider
             public function toResponse($request)
             {
                 return $request->wantsJson()
-                    ? Response::success(data:[
+                    ? Response::success(data: [
                         'user' => $request->user(),
                         'token' => $request->user()->createToken('l')->plainTextToken
                     ])
@@ -64,12 +64,15 @@ class FortifyServiceProvider extends ServiceProvider
             public function toResponse($request)
             {
                 return $request->wantsJson()
-                    ? Response::success(data:[
+                    ? Response::success(data: [
                         'user' => $request->user(),
                         'token' => $request->user()->createToken('l')->plainTextToken
                     ])
                     : redirect()->intended(Fortify::redirects('login'));
             }
         });
+
+        Fortify::loginView('livewire.auth.login');
+        Fortify::registerView('livewire.auth.register');
     }
 }
