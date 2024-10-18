@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "72ed17cf-b8ca-446e-a4dd-8fe69b3bfe65",
+		"name": "otters",
+		"description": "simple laravel/livewire project for test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11264150"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"token\", jsonData.data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aa@av.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}login",
+							"host": [
+								"{{base_url}}login"
+							]
+						},
+						"description": "The HTTP POST request to `{{base_url}}login` is used for user login with username and password.\n\n### Request Body\n\n- email (string): The email of the user.\n    \n- password (string): The password of the user.\n    \n\n### Response\n\nThe response is in JSON format with the following schema:\n\n``` json\n{\n  \"message\": \"string\",\n  \"data\": {\n    \"user\": {\n      \"id\": \"number\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"email_verified_at\": \"string\",\n      \"two_factor_secret\": \"string\",\n      \"two_factor_recovery_codes\": \"string\",\n      \"two_factor_confirmed_at\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"token\": \"string\"\n  }\n}\n\n ```\n\n- message (string): A message indicating the result of the login attempt.\n    \n- data (object): An object containing user information and token.\n    \n    - user (object): An object containing user details.\n        \n        - id (number): The user ID.\n            \n        - name (string): The name of the user.\n            \n        - email (string): The email of the user.\n            \n        - email_verified_at (string): The timestamp of email verification.\n            \n        - two_factor_secret (string): The two-factor authentication secret.\n            \n        - two_factor_recovery_codes (string): The two-factor recovery codes.\n            \n        - two_factor_confirmed_at (string): The timestamp of two-factor confirmation.\n            \n        - created_at (string): The timestamp of user creation.\n            \n        - updated_at (string): The timestamp of user information update.\n            \n    - token (string): The authentication token.\n        \n\n### Example\n\n``` json\n{\n  \"email\": \"aa@av.com\",\n  \"password\": \"123456789\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"token\", jsonData.data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ali\",\r\n    \"email\": \"aa@adv.com\",\r\n    \"password\": \"123456789\",\r\n    \"password_confirmation\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}register",
+							"host": [
+								"{{base_url}}register"
+							]
+						},
+						"description": "The HTTP POST request is used to register a user at the specified `base_url`. The request body should be in raw format and include the following parameters:\n\n### Request Body\n\n- `name` (string): The name of the user.\n    \n- `email` (string): The email address of the user.\n    \n- `password` (string): The user's chosen password.\n    \n- `password_confirmation` (string): Confirmation of the user's chosen password.\n    \n\nThe response to the request will have a status code of 200 and a content type of `application/json`. The response body will contain the following information:\n\n### Sample Rsponse\n\n``` json\n{\n  \"message\": \"\",\n  \"data\": {\n    \"user\": {\n      \"name\": \"\",\n      \"email\": \"\",\n      \"updated_at\": \"\",\n      \"created_at\": \"\",\n      \"id\": 0\n    },\n    \"token\": \"\"\n  }\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"description": "For authentication"
+		},
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "index",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}tasks",
+							"host": [
+								"{{base_url}}tasks"
+							]
+						},
+						"description": "### GET /tasks\n\nThis endpoint retrieves a list of tasks.\n\n#### Request\n\nThere are no request parameters for this endpoint.\n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n  \"data\": [\n    {\n      \"id\": \"number\",\n      \"user_id\": \"number\",\n      \"title\": \"string\",\n      \"des\": \"string\",\n      \"status\": \"number\",\n      \"priority\": \"number\",\n      \"end_at\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"status_label\": \"string\",\n      \"priority_label\": \"string\",\n      \"jalali_created_at\": \"string\",\n      \"jalali_end_at\": \"string\",\n      \"user\": {\n        \"id\": \"number\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n      }\n    }\n  ],\n  \"links\": {\n    \"first\": \"string\",\n    \"last\": \"string\",\n    \"prev\": \"null\",\n    \"next\": \"string\"\n  },\n  \"meta\": {\n    \"current_page\": \"number\",\n    \"from\": \"number\",\n    \"last_page\": \"number\",\n    \"links\": [\n      {\n        \"url\": \"string\",\n        \"label\": \"string\",\n        \"active\": \"boolean\"\n      }\n    ],\n    \"path\": \"string\",\n    \"per_page\": \"number\",\n    \"to\": \"number\",\n    \"total\": \"number\"\n  }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"task1\",\r\n    \"des\": \"Description\",\r\n    \"end_at\": \"2022-05-05 11:45\",\r\n    \"priority\": 90,\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}tasks",
+							"host": [
+								"{{base_url}}tasks"
+							]
+						},
+						"description": "The HTTP POST request is used to create a new task at the specified endpoint. The request body should be in raw format and include the following parameters:\n\n### Request Body\n\n- `title`: (string,required) The title of the task\n    \n- `des`: (string,required) The description of the task\n    \n- `end_at`: (string,required) The deadline for the task in the format \"YYYY-MM-DD HH:MM\"\n    \n- `priority`: (number,required) The priority of the task\n    \n- `status`: (number,required) The status of the task\n    \n\nExample:\n\n``` json\n{\n    \"title\": \"task1\",\n    \"des\": \"Description\",\n    \"end_at\": \"2022-05-05 11:45\",\n    \"priority\": 90,\n    \"status\": 0\n}\n\n ```\n\nThe response to the request has a status code of 201 and a content type of `application/json`. The response body contains the following data:\n\n### Reponse\n\n``` json\n{\n  \"data\": {\n    \"title\": \"\",\n    \"des\": \"\",\n    \"end_at\": \"\",\n    \"priority\": 0,\n    \"status\": 0,\n    \"user_id\": 0,\n    \"updated_at\": \"\",\n    \"created_at\": \"\",\n    \"id\": 0,\n    \"status_label\": \"\",\n    \"priority_label\": \"\",\n    \"jalali_created_at\": \"\",\n    \"jalali_end_at\": \"\"\n  }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Up Title\",\r\n    \"des\": \"Description\",\r\n    \"end_at\": \"2022-05-05 11:45\",\r\n    \"priority\": 90,\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}tasks/32",
+							"host": [
+								"{{base_url}}tasks"
+							],
+							"path": [
+								"32"
+							]
+						},
+						"description": "### Update Task\n\nUpdates a specific task with the provided ID.\n\n#### Request Body\n\n- title (string, nullable): The updated title of the task.\n    \n- des (string, nullable): The updated description of the task.\n    \n- end_at (string, nullable): The updated end date and time of the task.\n    \n- priority (number, nullable): The updated priority of the task.\n    \n- status (number, nullable): The updated status of the task.\n    \n\nExample:\n\n``` json\n{\n    \"title\": \"Up Title\",\n    \"des\": \"Description\",\n    \"end_at\": \"2022-05-05 11:45\",\n    \"priority\": 90,\n    \"status\": 0\n}\n\n ```\n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"data\": {\n        \"id\": 0,\n        \"user_id\": 0,\n        \"title\": \"\",\n        \"des\": \"\",\n        \"status\": 0,\n        \"priority\": 0,\n        \"end_at\": \"\",\n        \"created_at\": \"\",\n        \"updated_at\": \"\",\n        \"status_label\": \"\",\n        \"priority_label\": \"\",\n        \"jalali_created_at\": \"\",\n        \"jalali_end_at\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}tasks/1",
+							"host": [
+								"{{base_url}}tasks"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "### Retrieve Task Details\n\nThis endpoint is used to retrieve details of a specific task by providing the task ID in the URL.\n\n#### Request Body\n\n- No request body is required for this GET request.\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n``` json\n{\n  \"data\": {\n    \"id\": \"number\",\n    \"user_id\": \"number\",\n    \"title\": \"string\",\n    \"des\": \"string\",\n    \"status\": \"number\",\n    \"priority\": \"number\",\n    \"end_at\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"status_label\": \"string\",\n    \"priority_label\": \"string\",\n    \"jalali_created_at\": \"\",\n    \"jalali_end_at\": \"\"\n  }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}tasks/32",
+							"host": [
+								"{{base_url}}tasks"
+							],
+							"path": [
+								"32"
+							]
+						},
+						"description": "### HTTP DELETE {{base_url}}tasks/32\n\nThis endpoint is used to delete a specific task with the ID 32.\n\n#### Headers\n\nNo specific headers are required for this request.\n\n#### Parameters\n\nNo request parameters are required for this request.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\nUpon successful deletion, the server returns a status code of 200 and an empty JSON response:\n\n``` json\n{\n    \"message\": \"\",\n    \"data\": []\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"description": "management task (create, update, show, index, delete)"
+		}
+	]
+}
