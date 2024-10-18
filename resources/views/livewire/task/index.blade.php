@@ -28,8 +28,10 @@
                             <td>{!! $task->status_tag !!}</td>
                             <td dir="ltr">{{ $task->created_at }}</td>
                             <td>
-                                <span class="badge bg-info"
-                                      wire:click="$dispatch('openModal', { component: 'task.update', arguments: { task: {{ $task->id }} } })">ویرایش</span>
+                                @if (auth()->id() == $task->user_id)
+                                    <span class="badge bg-info"
+                                          wire:click="$dispatch('openModal', { component: 'task.update', arguments: { task: {{ $task->id }} } })">ویرایش</span>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

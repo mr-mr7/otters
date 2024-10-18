@@ -34,10 +34,15 @@ class Update extends ModalComponent
 
     public function save()
     {
-        $this->validate();
-        $this->taskService->update($this->taskId, array_filter($this->form->all()));
-        $this->successAlert();
+        $task = Task::query()->findOrFail($this->taskId);
+        if (auth()->id() != $task->user_id) {
+            $this->alert('error', 'شما اجازه ویرایش این تسک را ندارید');
+        } else {
+            $this->validate();
+            $this->taskService->update($task, array_filter($this->form->all()));
+            $this->successAlert();
+            $this->dispatch('$refresh');
+        }
         $this->closeModal();
-        $this->dispatch('$refresh');
     }
 }
