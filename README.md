@@ -9,18 +9,19 @@
 
 ## ABOUT THIS PROJECT
 This project is a simple and test project for work with laravel and livewire with useful feature like
-- `queue`
-- `broadcasting`
-- `reverb`
-- `service layer`
-- `service container`
-- `livewire`
-- `spatie query builder`
-- `test`
-- `fortify`
-- `observer`
-- `event`
-- `accessor`
+- `Docker`
+- `Queue`
+- `Broadcasting`
+- `Reverb`
+- `Service layer`
+- `Service container`
+- `Livewire`
+- `Spatie query builder`
+- `Test`
+- `Fortify`
+- `Observer`
+- `Event`
+- `Accessor`
 - ....
 
 #### Notice: application test isn't complete just I wrote some test for test
@@ -29,6 +30,10 @@ This project is a simple and test project for work with laravel and livewire wit
 
 ## RUN ON LOCALHOST
 
+#### Notice: `sail` is alias for `./vendor/bin/ sail`
+
+
+- `sail up -d`
 - `sail composer install`
 - `sail up -d`
 - `sail artisan migrate`
