@@ -7,10 +7,30 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## ABOUT THIS PROJECT
+This project is a simple and test project for work with laravel and livewire with useful feature like
+- `queue`
+- `broadcasting`
+- `reverb`
+- `service layer`
+- `service container`
+- `livewire`
+- `spatie query builder`
+- `test`
+- `fortify`
+- `observer`
+- `event`
+- `accessor`
+- ....
+
+#### Notice: application test isn't complete just I wrote some test for test
+#### TaskService: `TaskService` can be better with use interface and inject interface task service to use it
+
+
 ## RUN ON LOCALHOST
 
-- sail composer install
-- sail up -d
-- sail artisan migrate
-- sail artisan reverb start
-- sail artisan queue:work --queue=high,medium,default
+- `sail composer install`
+- `sail up -d`
+- `sail artisan migrate`
+- `sail artisan reverb start`
+- `sail artisan queue:work --queue=high,medium,default`
