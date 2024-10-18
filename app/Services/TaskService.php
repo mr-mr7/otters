@@ -30,8 +30,7 @@ class TaskService
 
     public function store($data)
     {
-        $task = auth()->user()->tasks()->create($data);
-        return $task->fresh();
+        return auth()->user()->tasks()->create($data);
     }
 
     public function show(Task $task)
