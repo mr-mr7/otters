@@ -23,10 +23,10 @@
                             <td>{{ $task->user->name }}</td>
                             <td>{{ $task->title }}</td>
                             <td>{{ $task->des }}</td>
-                            <td>{{ $task->end_at }}</td>
                             <td>{!! $task->priority_tag !!}</td>
                             <td>{!! $task->status_tag !!}</td>
-                            <td dir="ltr">{{ $task->created_at }}</td>
+                            <td dir="ltr">{{ $task->jalali_end_at }}</td>
+                            <td dir="ltr">{{ $task->jalali_created_at }}</td>
                             <td>
                                 @if (auth()->id() == $task->user_id)
                                     <span class="badge bg-info"
