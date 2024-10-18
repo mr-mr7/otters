@@ -19,7 +19,6 @@
                 <div class="mb-4">
                     <label>اولویت</label>
                     <select class="form-control" wire:model="form.priority">
-                        <option value="">انتخاب کنید</option>
                         @foreach(\App\Enums\TaskPriorityEnum::cases() as $item)
                             <option value="{{ $item->value }}">{{ $item->label() }}</option>
                         @endforeach
@@ -27,8 +26,17 @@
                     <x-livewire.alert.error.validation-error model="form.priority"/>
                 </div>
                 <div class="mb-4">
+                    <label>وضعیت</label>
+                    <select class="form-control" wire:model="form.status">
+                        @foreach(\App\Enums\TaskStatusEnum::cases() as $item)
+                            <option value="{{ $item->value }}">{{ $item->label() }}</option>
+                        @endforeach
+                    </select>
+                    <x-livewire.alert.error.validation-error model="form.status"/>
+                </div>
+                <div class="mb-4">
                     <label>تاریخ پایان</label>
-                    <input type="datetime-local" class="form-control" wire:model="form.end_at">
+                    <input type="datetime-local" dataformatas="Y-m-d H:i:s" class="form-control" wire:model="form.end_at">
                     <x-livewire.alert.error.validation-error model="form.end_at"/>
                 </div>
             </div>

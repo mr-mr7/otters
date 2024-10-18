@@ -14,6 +14,7 @@ class TaskForm extends Form
     public $des;
     public $end_at;
     public $priority;
+    public $status;
     private $task;
 
     public function setTask(Task $task)

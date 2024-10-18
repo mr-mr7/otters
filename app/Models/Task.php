@@ -14,7 +14,7 @@ class Task extends Model
     protected $appends = ['status_label', 'priority_label','jalali_created_at','jalali_end_at'];
 
     protected $casts = [
-        'end_at' => 'datetime'
+
     ];
 
     // ============= Relation ==============

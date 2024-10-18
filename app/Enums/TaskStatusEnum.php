@@ -13,6 +13,11 @@ enum TaskStatusEnum: int
     case PROCESSING = 10;
     case COMPLETE = 100;
 
+    public function label()
+    {
+        return self::getLabel($this->value);
+    }
+
     public static function getLabel($val): string
     {
         return match ($val) {
@@ -28,7 +33,7 @@ enum TaskStatusEnum: int
         return match ($val) {
             self::NEW, self::NEW->value => '<span class="badge bg-primary">جدید</span>',
             self::POSTPONED, self::POSTPONED->value => '<span class="badge bg-danger">به تعویق افتاده</span>',
-            self::PROCESSING, self::PROCESSING->value => '<span class="badge bg-info">در دست پردازش</span>',
+            self::PROCESSING, self::PROCESSING->value => '<span class="badge bg-info">در حال انجام</span>',
             self::COMPLETE, self::COMPLETE->value => '<span class="badge bg-success">انجام شده</span>',
         };
     }

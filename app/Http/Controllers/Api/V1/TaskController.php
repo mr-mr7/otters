@@ -27,12 +27,12 @@ class TaskController extends Controller
 
     public function store(CreateTaskRequest $request)
     {
-        return new TaskResource($this->taskService->store($request->only(['title', 'des', 'end_at', 'priority'])));
+        return new TaskResource($this->taskService->store($request->only(['title', 'des', 'end_at', 'priority', 'status'])));
     }
 
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        return new TaskResource($this->taskService->update($task, $request->only(['title', 'des', 'end_at', 'priority'])));
+        return new TaskResource($this->taskService->update($task, $request->only(['title', 'des', 'end_at', 'priority', 'status'])));
     }
 
     public function show(Task $task)

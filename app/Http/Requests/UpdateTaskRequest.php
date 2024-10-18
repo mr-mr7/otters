@@ -25,10 +25,11 @@ class UpdateTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'des' => 'required|string|max:255',
-            'end_at' => 'required',
-            'priority' => 'required|in:' . implode(',', \App\Enums\TaskPriorityEnum::values()),
+            'title' => 'nullable|min:1|string',
+            'des' => 'nullable|string|min:1|max:255',
+            'end_at' => 'nullable|date',
+            'priority' => 'nullable|in:' . implode(',', \App\Enums\TaskPriorityEnum::values()),
+            'status' => 'nullable|in:' . implode(',', \App\Enums\TaskStatusEnum::values()),
         ];
     }
 }

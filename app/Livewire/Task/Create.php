@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Task;
 
+use App\Enums\TaskPriorityEnum;
+use App\Enums\TaskStatusEnum;
 use App\Livewire\Forms\Task\TaskForm;
 use App\Models\Task;
 use App\Services\TaskService;
@@ -18,6 +20,12 @@ class Create extends ModalComponent
     public function boot(TaskService $taskService)
     {
         $this->taskService = $taskService;
+    }
+
+    public function mount()
+    {
+        $this->form->status = TaskStatusEnum::NEW->value;
+        $this->form->priority = TaskPriorityEnum::LOW->value;
     }
 
     public function render()

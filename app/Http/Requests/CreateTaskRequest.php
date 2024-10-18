@@ -22,10 +22,11 @@ class CreateTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'des' => 'required|string|max:255',
-            'end_at' => 'required',
+            'title' => 'required|string|min:1',
+            'des' => 'required|string|min:1|max:255',
+            'end_at' => 'required|date',
             'priority' => 'required|in:' . implode(',', \App\Enums\TaskPriorityEnum::values()),
+            'status' => 'required|in:' . implode(',', \App\Enums\TaskStatusEnum::values()),
         ];
     }
 }
