@@ -39,8 +39,9 @@ class TaskService
         return $task;
     }
 
-    public function update(Task $task, $data)
+    public function update(Task|int $task, $data)
     {
+        if (is_numeric($task)) $task = Task::query()->findOrFail($task);
         $task->update($data);
         return $task->fresh();
     }
