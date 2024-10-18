@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $fillable = ['title', 'des', 'status', 'priority', 'end_at'];
 
-    protected $appends = ['status_label', 'priority_label'];
+    protected $appends = ['status_label', 'priority_label','jalali_created_at','jalali_end_at'];
 
     protected $casts = [
         'end_at' => 'datetime'
@@ -44,12 +44,12 @@ class Task extends Model
         return isset($this->attributes['priority']) ? TaskPriorityEnum::getHtmlTag($this->attributes['priority']) : null;
     }
 
-    public function getCreatedAtAttribute()
+    public function getJalaliCreatedAtAttribute()
     {
         return isset($this->attributes['created_at']) ? verta($this->attributes['created_at']) : null;
     }
 
-    public function getEndAtAttribute()
+    public function getJalaliEndAtAttribute()
     {
         return isset($this->attributes['end_at']) ? verta($this->attributes['end_at']) : null;
     }
