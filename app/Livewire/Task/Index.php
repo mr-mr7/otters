@@ -11,6 +11,10 @@ class Index extends Component
 {
     private TaskService $taskService;
 
+    protected $listeners = [
+        '$refresh'
+    ];
+
     public function boot(TaskService $taskService)
     {
         $this->taskService = $taskService;
