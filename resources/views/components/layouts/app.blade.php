@@ -14,7 +14,7 @@
     @vite(['resources/js/app.js','resources/css/app.css'])
 </head>
 <body dir="rtl">
-<div class="container">
+<div class="container-fluid">
     {{ $slot }}
 </div>
 
