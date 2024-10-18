@@ -13,10 +13,6 @@ class Task extends Model
 
     protected $appends = ['status_label', 'priority_label','jalali_created_at','jalali_end_at'];
 
-    protected $casts = [
-
-    ];
-
     // ============= Relation ==============
     public function user()
     {
@@ -24,34 +20,60 @@ class Task extends Model
     }
     // ============= Mutator ==============
     // ============= Accessor ==============
-    public function getStatusLabelAttribute()
+    /**
+     * label for status
+     * @return string|null
+     */
+    public function getStatusLabelAttribute(): ?string
     {
         return isset($this->attributes['status']) ? TaskStatusEnum::getLabel($this->attributes['status']) : null;
     }
 
-    public function getPriorityLabelAttribute()
+    /**
+     * label for priority
+     * @return string|null
+     */
+    public function getPriorityLabelAttribute(): ?string
     {
         return isset($this->attributes['priority']) ? TaskPriorityEnum::getLabel($this->attributes['priority']) : null;
     }
 
-    public function getStatusTagAttribute()
+    /**
+     * HTML tag for status
+     * @return string|null
+     */
+    public function getStatusTagAttribute(): ?string
     {
         return isset($this->attributes['status']) ? TaskStatusEnum::getHtmlTag($this->attributes['status']) : null;
     }
 
-    public function getPriorityTagAttribute()
+    /**
+     * HTML tag for priority
+     *
+     * @return string|null
+     */
+    public function getPriorityTagAttribute(): ?string
     {
         return isset($this->attributes['priority']) ? TaskPriorityEnum::getHtmlTag($this->attributes['priority']) : null;
     }
 
-    public function getJalaliCreatedAtAttribute()
+    /**
+     * convert created_at to Jalali
+     * @return string|null
+     */
+    public function getJalaliCreatedAtAttribute(): ?string
     {
-        return isset($this->attributes['created_at']) ? verta($this->attributes['created_at']) : null;
+        return isset($this->attributes['created_at']) ? verta($this->attributes['created_at'])->format('Y-m-d H:i:s') : null;
     }
 
-    public function getJalaliEndAtAttribute()
+    /**
+     * convert end_at to Jalali
+     *
+     * @return string|null
+     */
+    public function getJalaliEndAtAttribute(): ?string
     {
-        return isset($this->attributes['end_at']) ? verta($this->attributes['end_at']) : null;
+        return isset($this->attributes['end_at']) ? verta($this->attributes['end_at'])->format('Y-m-d H:i:s') : null;
     }
     // ============= Function ==============
 }

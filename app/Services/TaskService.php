@@ -18,7 +18,7 @@ class TaskService
     public function index()
     {
         $tasks = QueryBuilder::for(\App\Models\Task::class)
-            ->with('user')
+            ->with('user:id,name,email')
             ->allowedFilters([
                 'title', 'des',
                 AllowedFilter::partial('user.name'),
