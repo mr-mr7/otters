@@ -12,12 +12,17 @@ enum TaskPriorityEnum: int
     case MEDIUM = 50;
     case HIGH = 90;
 
+    public function label()
+    {
+        return self::getLabel($this->value);
+    }
+
     public static function getLabel($val): string
     {
         return match ($val) {
             self::LOW, self::LOW->value => 'کم',
             self::MEDIUM, self::MEDIUM->value => 'متوسط',
-            self::HIGH, self::HIGH->value => 'بالا',
+            self::HIGH, self::HIGH->value => 'زیاد',
         };
     }
 
