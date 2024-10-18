@@ -5,7 +5,7 @@ namespace App\Livewire\Task;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('تسک منیجر')]
+#[Title('مدیریت تسک ها')]
 class TaskManager extends Component
 {
     public function render()
