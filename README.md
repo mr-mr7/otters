@@ -33,8 +33,12 @@ This project is a simple and test project for work with laravel and livewire wit
 #### Notice: `sail` is alias for `./vendor/bin/ sail`
 
 
-- `sail up -d`
-- `sail composer install`
+- `docker run --rm \
+  -u "$(id -u):$(id -g)" \
+  -v "$(pwd):/var/www/html" \
+  -w /var/www/html \
+  laravelsail/php82-composer:latest \
+  composer install --ignore-platform-reqs`
 - `sail up -d`
 - `sail artisan migrate`
 - `sail artisan reverb start`
